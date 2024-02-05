@@ -54,7 +54,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Profile(fullName: String, title: String,  modifier: Modifier = Modifier) {
+fun Profile(fullName: String,
+            jobTitle: String,
+            modifier: Modifier = Modifier) {
 
     val picture = painterResource(id = R.drawable.javier)
 
@@ -85,14 +87,17 @@ fun Profile(fullName: String, title: String,  modifier: Modifier = Modifier) {
             fontStyle = FontStyle(1),
             fontSize = 20.sp,
             color = Color.White,
-            text = title,
+            text = jobTitle,
             modifier = Modifier
         )
     }
 }
 
 @Composable
-fun ContactInfo(modifier: Modifier = Modifier) {
+fun ContactInfo(    phoneNumber: String,
+                    linkedIn: String,
+                    email: String,
+                    modifier: Modifier = Modifier) {
     Column (modifier = modifier,
     horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
@@ -107,7 +112,7 @@ fun ContactInfo(modifier: Modifier = Modifier) {
             )
             Text(
                 color = Color.White,
-                text = stringResource(R.string.phone),
+                text = phoneNumber,
                 modifier = Modifier.padding(4.dp)
             )
         }
@@ -120,7 +125,7 @@ fun ContactInfo(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(4.dp)
             )
             Text(
-                text = stringResource(R.string.linkedin),
+                text = linkedIn,
                 color = Color.White,
                 modifier = Modifier.padding(4.dp)
             )
@@ -135,7 +140,7 @@ fun ContactInfo(modifier: Modifier = Modifier) {
             )
             Text(
                 color = Color.White,
-                text = stringResource(R.string.email),
+                text = email,
                 modifier = Modifier.padding(4.dp)
             )
         }
@@ -154,7 +159,7 @@ fun BussinessCard(modifier: Modifier = Modifier
     ) {
 
         Profile("Javier Saez", "Software Developer Student", modifier = Modifier.weight(3f))
-        ContactInfo(modifier = Modifier.weight(1f))
+        ContactInfo("403-404-5566", "@javier-saez-v","j.saezvaldes373@mybvc.ca", modifier = Modifier.weight(1f))
     }
 }
 
@@ -164,6 +169,5 @@ fun BussinessCard(modifier: Modifier = Modifier
 fun BussinessCardPreview() {
     BusinessCardAppTheme {
         BussinessCard()
-
     }
 }
